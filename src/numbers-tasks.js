@@ -50,7 +50,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -175,8 +175,8 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  return Number(num.toPrecision(num.toString().length - pow));
 }
 
 /**
@@ -216,9 +216,9 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  return typeof Number(value) === 'number' && value != null && !value.isNaN()
-    ? Number(value)
-    : def;
+  if (value === null) return def;
+  if (Number.isNaN(Number(value))) return def;
+  return Number(value);
 }
 
 /**
