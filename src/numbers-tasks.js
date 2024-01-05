@@ -89,27 +89,6 @@ function getLinearEquationRoot(a, b) {
 }
 
 /**
- * Returns an angle (in radians) between two vectors given by xi and yi,
- * coordinates in Cartesian plane.
- * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
- *
- * @param {number} x1
- * @param {number} y1
- * @param {number} x2
- * @param {number} y2
- * @return {number}
- *
- * @example:
- *   (1,0) (0,1)     => π/2
- *   (0,1) (0,-1)    => π
- *   (0,-1) (1,0)    => π/2
- *   (0,1) (0,1)     => 0
- */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
-}
-
-/**
  * Returns a last digit of a integer number.
  * The input parameter will always be greater than or equal to zero and will be in decimal notation.
  *
@@ -180,7 +159,31 @@ function roundToPowerOfTen(num, pow) {
 }
 
 /**
- * Returns true is the number is prime; otherwise false.
+ * Returns an angle (in radians) between two vectors given by xi and yi,
+ * coordinates in Cartesian plane.
+ * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
+ *
+ * @param {number} x1
+ * @param {number} y1
+ * @param {number} x2
+ * @param {number} y2
+ * @return {number}
+ *
+ * @example:
+ *   (1,0) (0,1)     => π/2
+ *   (0,1) (0,-1)    => π
+ *   (0,-1) (1,0)    => π/2
+ *   (0,1) (0,1)     => 0
+ */
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  return Math.acos(
+    ((x1 * x2 + y1 * y2) / Math.sqrt(x1 ** 2 + y1 ** 2)) *
+      Math.sqrt(x2 ** 2 + y2 ** 2)
+  );
+}
+
+/**
+ * Returns true if the number is prime; otherwise false.
  * See: https://en.wikipedia.org/wiki/Primality_test
  *
  * @param {number} n
@@ -198,6 +201,22 @@ function roundToPowerOfTen(num, pow) {
  */
 function isPrime(n) {
   return n === 2 || n % 2 !== 0;
+}
+/**
+ * Returns the Fibonacci number located at the index position.
+ *
+ * @param {number} index
+ * @return {number}
+ *
+ * @example:
+ *   0  => 0
+ *   1  => 1
+ *   2  => 1
+ *   3  => 2
+ *   10 => 55
+ */
+function getFibonacciNumber(/* index */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -234,23 +253,6 @@ function toNumber(value, def) {
  */
 function getCube(num) {
   return num ** 3;
-}
-
-/**
- * Returns the Fibonacci number located at the index position.
- *
- * @param {number} index
- * @return {number}
- *
- * @example:
- *   0  => 0
- *   1  => 1
- *   2  => 1
- *   3  => 2
- *   10 => 55
- */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
 }
 
 /**
