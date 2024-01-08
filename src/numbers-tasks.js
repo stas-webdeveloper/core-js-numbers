@@ -200,7 +200,13 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *   17 => true
  */
 function isPrime(n) {
-  return n === 2 || n % 2 !== 0;
+  let start = 2;
+  const limit = Math.sqrt(n);
+  while (start <= limit) {
+    if (n % start < 1) return false;
+    start += 1;
+  }
+  return n > 1;
 }
 /**
  * Returns the Fibonacci number located at the index position.
@@ -215,8 +221,10 @@ function isPrime(n) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  return index <= 1
+    ? index
+    : getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);
 }
 
 /**
